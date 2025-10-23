@@ -3,10 +3,10 @@ services:
     build: 
       dockerfile: docker/Dockerfile
       context: ..
-      ssh:
-        - default
-      args:
-        - USER_ID
+      # ssh:
+      #   - default
+      # args:
+      #   - USER_ID
     stdin_open: true
     tty: true 
     entrypoint: /bin/bash
