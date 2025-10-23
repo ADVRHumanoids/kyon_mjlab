@@ -106,7 +106,7 @@ KYON_KNEE_ACTUATOR_CFG = ActuatorCfg(
 
 
 INIT_STATE = EntityCfg.InitialStateCfg(
-  pos=(0.0, 0.0, 0.55),
+  pos=(0.0, 0.0, 0.60),
   joint_pos={
     "hip_roll_1": 0.0,
     "hip_pitch_1": -0.7,
@@ -144,15 +144,16 @@ FEET_ONLY_COLLISION = CollisionCfg(
 
 # This enables all collisions, excluding self collisions.
 # Foot collisions are given custom condim, friction and solimp.
-FULL_COLLISION = CollisionCfg(
-  geom_names_expr=[".*_collision"],
-  condim={_foot_regex: 3, ".*_collision": 1},
-  priority={_foot_regex: 1},
-  friction={_foot_regex: (0.6,)},
-  solimp={_foot_regex: (0.9, 0.95, 0.023)},
-  contype=1,
-  conaffinity=0,
-)
+# NOTE!!! This does not work, needs further testing and fixing.
+# FULL_COLLISION = CollisionCfg(
+#   geom_names_expr=[".*_collision"],
+#   condim={_foot_regex: 3, ".*_collision": 1},
+#   priority={_foot_regex: 1},
+#   friction={_foot_regex: (0.6,)},
+#   solimp={_foot_regex: (0.9, 0.95, 0.023)},
+#   contype=1,
+#   conaffinity=0,
+# )
 
 ##
 # Final config.
@@ -168,7 +169,7 @@ KYON_ARTICULATION = EntityArticulationInfoCfg(
 
 KYON_ROBOT_CFG = EntityCfg(
   init_state=INIT_STATE,
-  collisions=(FULL_COLLISION,),
+  collisions=(FEET_ONLY_COLLISION,),
   spec_fn=get_spec,
   articulation=KYON_ARTICULATION,
 )

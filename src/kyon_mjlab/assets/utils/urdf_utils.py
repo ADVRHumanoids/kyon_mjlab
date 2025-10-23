@@ -34,7 +34,7 @@ def add_mujoco_compiler_tag(urdf: str) -> str:
     MUJOCO_TAG = f"""
     {_ROBOT_LINE}
     <mujoco>
-        <compiler strippath="false"/>
+        <compiler strippath="false" discardvisual="false"/>
     </mujoco>
     """
 
