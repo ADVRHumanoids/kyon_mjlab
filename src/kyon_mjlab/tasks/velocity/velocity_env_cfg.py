@@ -211,7 +211,7 @@ class RewardCfg:
   air_time: RewardTerm = term(
     RewardTerm,
     func=mdp.feet_air_time,
-    weight=1.0,
+    weight=0.0,
     params={
       "asset_name": "robot",
       "threshold_min": 0.33,
