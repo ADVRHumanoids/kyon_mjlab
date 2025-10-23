@@ -1,0 +1,62 @@
+<mujoco model="kyon">
+  <compiler angle="radian"/>
+
+  <worldbody>
+    <body name="pelvis" pos="0 0 0.6">
+      <inertial pos="0.0289242 0.00140306 0.0582193" quat="0.534499 0.4627 0.486194 0.513649" mass="29.7628" diaginertia="1.44559 1.43622 0.333359"/>
+      <joint name="reference" type="free"/>
+      <body name="hip_roll_1_link" pos="0.391 0.0775 0" quat="0.707107 0 0.707107 0">
+        <inertial pos="-0.000673177 0.00653492 -0.115647" quat="0.714418 0.049129 -0.0515476 0.696087" mass="2.57724" diaginertia="0.0146936 0.0141982 0.00434233"/>
+        <joint name="hip_roll_1" pos="0 0 0" axis="0 0 -1" range="-0.65 0.65" actuatorfrcrange="-185 185"/>
+        <body name="hip_pitch_1_link" pos="0 -0.04746 0" quat="0.5 -0.5 0.5 0.5">
+          <inertial pos="6.96539e-05 -0.0776661 0.146893" quat="0.811804 0.583816 0.00415654 -0.0107198" mass="6.43661" diaginertia="0.121449 0.109742 0.0183206"/>
+          <joint name="hip_pitch_1" pos="0 0 0" axis="0 0 -1" range="-2.4056 2.4056" actuatorfrcrange="-185 185"/>
+          <body name="knee_pitch_1_link" pos="0 -0.346 0.24606">
+            <inertial pos="4.41503e-06 -0.130029 0.00631671" quat="0.764263 0.638276 0.0591287 -0.0707774" mass="0.822099" diaginertia="0.016645 0.0166448 0.000635156"/>
+            <joint name="knee_pitch_1" pos="0 0 0" axis="0 0 -1" range="-3.2 3.2" actuatorfrcrange="-185 185"/>
+            <geom name="contact_1" size="0.03" pos="0 -0.3 0.054" quat="0.653595 -0.653075 -0.27036 0.270576"/>
+          </body>
+        </body>
+      </body>
+      <body name="hip_roll_2_link" pos="0.391 -0.0775 0" quat="0.707107 0 0.707107 0">
+        <inertial pos="-0.000673177 0.00653492 -0.115647" quat="0.696087 -0.0515476 0.049129 0.714418" mass="2.57724" diaginertia="0.0146936 0.0141982 0.00434233"/>
+        <joint name="hip_roll_2" pos="0 0 0" axis="0 0 -1" range="-0.65 0.65" actuatorfrcrange="-185 185"/>
+        <body name="hip_pitch_2_link" pos="0 0.04746 0" quat="0.5 0.5 -0.5 0.5">
+          <inertial pos="6.96539e-05 -0.0776661 0.146893" quat="0.811804 0.583816 0.00415654 -0.0107198" mass="6.43661" diaginertia="0.121449 0.109742 0.0183206"/>
+          <joint name="hip_pitch_2" pos="0 0 0" axis="0 0 -1" range="-2.3266 2.3266" actuatorfrcrange="-185 185"/>
+          <body name="knee_pitch_2_link" pos="0 -0.346 0.24606">
+            <inertial pos="4.41503e-06 -0.130029 0.00631671" quat="0.760704 0.635302 -0.0853446 0.102158" mass="0.822099" diaginertia="0.016645 0.0166448 0.000635156"/>
+            <joint name="knee_pitch_2" pos="0 0 0" axis="0 0 -1" range="-3.2 3.2" actuatorfrcrange="-185 185"/>
+            <geom name="contact_2" size="0.03" pos="0 -0.3 0.054" quat="0.270769 0.270554 0.652995 0.653515"/>
+          </body>
+        </body>
+      </body>
+      <body name="hip_roll_3_link" pos="-0.391 0.0775 0" quat="0.707107 0 -0.707107 0">
+        <inertial pos="-0.000673177 0.00653492 -0.115647" quat="0.714418 0.049129 -0.0515476 0.696087" mass="2.57724" diaginertia="0.0146936 0.0141982 0.00434233"/>
+        <joint name="hip_roll_3" pos="0 0 0" axis="0 0 -1" range="-0.65 0.65" actuatorfrcrange="-185 185"/>
+        <body name="hip_pitch_3_link" pos="0 -0.04746 0" quat="0.5 -0.5 -0.5 -0.5">
+          <inertial pos="6.96539e-05 -0.0776661 0.146893" quat="0.811804 0.583816 0.00415654 -0.0107198" mass="6.43661" diaginertia="0.121449 0.109742 0.0183206"/>
+          <joint name="hip_pitch_3" pos="0 0 0" axis="0 0 -1" range="-2.4696 2.4696" actuatorfrcrange="-185 185"/>
+          <body name="knee_pitch_3_link" pos="0 -0.346 0.24606">
+            <inertial pos="4.41503e-06 -0.130029 0.00631671" quat="0.764263 0.638276 0.0591287 -0.0707774" mass="0.822099" diaginertia="0.016645 0.0166448 0.000635156"/>
+            <joint name="knee_pitch_3" pos="0 0 0" axis="0 0 -1" range="-3.2 3.2" actuatorfrcrange="-185 185"/>
+            <geom name="contact_3" size="0.03" pos="0 -0.3 0.054" quat="0.653595 -0.653075 -0.27036 0.270576"/>
+          </body>
+        </body>
+      </body>
+      <body name="hip_roll_4_link" pos="-0.391 -0.0775 0" quat="0.707107 0 -0.707107 0">
+        <inertial pos="-0.000673177 0.00653492 -0.115647" quat="0.696087 -0.0515476 0.049129 0.714418" mass="2.57724" diaginertia="0.0146936 0.0141982 0.00434233"/>
+        <joint name="hip_roll_4" pos="0 0 0" axis="0 0 -1" range="-0.65 0.65" actuatorfrcrange="-185 185"/>
+        <body name="hip_pitch_4_link" pos="0 0.04746 0" quat="0.5 0.5 0.5 -0.5">
+          <inertial pos="6.96539e-05 -0.0776661 0.146893" quat="0.811804 0.583816 0.00415654 -0.0107198" mass="6.43661" diaginertia="0.121449 0.109742 0.0183206"/>
+          <joint name="hip_pitch_4" pos="0 0 0" axis="0 0 -1" range="-2.3426 2.3426" actuatorfrcrange="-185 185"/>
+          <body name="knee_pitch_4_link" pos="0 -0.346 0.24606">
+            <inertial pos="4.41503e-06 -0.130029 0.00631671" quat="0.760704 0.635302 -0.0853446 0.102158" mass="0.822099" diaginertia="0.016645 0.0166448 0.000635156"/>
+            <joint name="knee_pitch_4" pos="0 0 0" axis="0 0 -1" range="-3.2 3.2" actuatorfrcrange="-185 185"/>
+            <geom name="contact_4" size="0.03" pos="0 -0.3 0.054" quat="0.270769 0.270554 0.652995 0.653515"/>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>

@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools-scm>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kyon-mjlab"
+version = "0.1.0"
+description = "MjLab tasks and configurations for the Kyon robot"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "Arturo Laurenzi", email = "arturo.laurenzi@iit.it"},
+]
+keywords = ["kyon", "mujoco", "reinforcement-learning", "robotics", "quadruped"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "mjlab>=0.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.13.0",
+    "pre-commit",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/kyon_mjlab"
+Repository = "https://github.com/yourusername/kyon_mjlab"
+Issues = "https://github.com/yourusername/kyon_mjlab/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+kyon_mjlab = ["assets/**/*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
