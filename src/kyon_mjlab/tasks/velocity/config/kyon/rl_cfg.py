@@ -35,7 +35,7 @@ class IitKyonPPORunnerCfg(RslRlOnPolicyRunnerCfg):
       max_grad_norm=1.0,
     )
   )
-  experiment_name: str = "go1_velocity"
+  experiment_name: str = "kyon_velocity"
   save_interval: int = 50
   num_steps_per_env: int = 24
   max_iterations: int = 10_000

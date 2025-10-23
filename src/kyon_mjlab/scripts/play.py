@@ -31,7 +31,7 @@ ResolvedViewer = Literal["native", "viser"]
 
 @dataclass(frozen=True)
 class PlayConfig:
-  agent: Literal["zero", "random", "trained"] = "zero"
+  agent: Literal["zero", "random", "trained"] = "trained"
   registry_name: str | None = None
   wandb_run_path: str | None = None
   checkpoint_file: str | None = None
