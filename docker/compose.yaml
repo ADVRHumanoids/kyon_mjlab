@@ -1,12 +1,7 @@
 services:
   dev:
-    build: 
-      dockerfile: docker/Dockerfile
-      context: ..
-      # ssh:
-      #   - default
-      # args:
-      #   - USER_ID
+    container_name: kyon_mjlab
+    image: ghcr.io/advrhumanoids/kyon_mjlab
     stdin_open: true
     tty: true 
     entrypoint: /bin/bash
