@@ -45,6 +45,8 @@ class IitKyonRoughEnvCfg(LocomotionVelocityEnvCfg):
 
     self.events.foot_friction.params["asset_cfg"].geom_names = geom_names
 
+    self.observations.critic.contacts.params["sensor_names"] = sensor_names
+
     self.viewer.body_name = "base_link"
     self.viewer.distance = 1.5
     self.viewer.elevation = -10.0

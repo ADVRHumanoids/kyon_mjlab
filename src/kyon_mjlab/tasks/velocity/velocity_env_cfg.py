@@ -24,6 +24,8 @@ from mjlab.terrains.config import ROUGH_TERRAINS_CFG
 from mjlab.utils.noise import UniformNoiseCfg as Unoise
 from mjlab.viewer import ViewerConfig
 
+from kyon_mjlab.tasks.velocity import mdp as kyon_mdp
+
 ##
 # Scene.
 ##
@@ -87,11 +89,6 @@ class CommandsCfg:
 class ObservationCfg:
   @dataclass
   class PolicyCfg(ObsGroup):
-    base_lin_vel: ObsTerm = term(
-      ObsTerm,
-      func=mdp.base_lin_vel,
-      noise=Unoise(n_min=-0.1, n_max=0.1),
-    )
     base_ang_vel: ObsTerm = term(
       ObsTerm,
       func=mdp.base_ang_vel,
@@ -123,6 +120,18 @@ class ObservationCfg:
 
   @dataclass
   class PrivilegedCfg(PolicyCfg):
+    base_lin_vel: ObsTerm = term(
+      ObsTerm,
+      func=mdp.base_lin_vel,
+      noise=Unoise(n_min=-0.1, n_max=0.1),
+    )
+    contacts: ObsTerm = term(
+      ObsTerm,
+      func=kyon_mdp.contact_found,
+      params={
+        "sensor_names": [],  # Override in robot cfg.
+      },
+    )
     def __post_init__(self):
       super().__post_init__()
       self.enable_corruption = False
@@ -202,11 +211,11 @@ class RewardCfg:
   air_time: RewardTerm = term(
     RewardTerm,
     func=mdp.feet_air_time,
-    weight=0.0,
+    weight=1.0,
     params={
       "asset_name": "robot",
-      "threshold_min": 0.05,
-      "threshold_max": 0.15,
+      "threshold_min": 0.33,
+      "threshold_max": 1.00,
       "command_name": "twist",
       "command_threshold": 0.05,
       "sensor_names": [],
@@ -236,6 +245,7 @@ class CurriculumCfg:
       "command_name": "twist",
       "velocity_stages": [
         {"step": 500 * 24, "range": (-1.5, 1.5)},
+        {"step": 1000 * 24, "range": (-2.0, 2.0)},
       ],
     },
   )
